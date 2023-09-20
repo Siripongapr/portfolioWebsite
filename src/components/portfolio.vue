@@ -41,7 +41,7 @@ const image = ref([
 
   <!-- section portfolio -->
   <section portfolio class="pb-32 px-9 md:px-16 " style=" color: white;">
-    <div class="flex flex-row gap-2 md:gap-10">
+    <div class="flex flex-row  flex-wrap md:flex-nowrap gap-2 md:gap-10">
         <div>
             <a href="">
             All</a>

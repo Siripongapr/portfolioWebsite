@@ -1,3 +1,18 @@
+<script>
+export default {
+  data() {
+    return {
+      isMenuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+  },
+};
+</script>
+
 <template>
   <nav class="fixed z-40" style="width: 100%">
     <div class="pr-10 py-2 md:py-5" style="background-color: #31313a">
@@ -11,13 +26,21 @@
         <li class="hidden md:block">
           <a href="/portfolio"> Portfoilio </a>
         </li>
+        <li class="hidden md:block">
+          <a href="/blog"> Blog </a>
+        </li>
+        <li class="hidden md:block">
+          <a href="/contacts"> Contact </a>
+        </li>
+
         <li class="md:hidden">
           <button
-            id="nav-hamburger"
+            id="nav-hamburger-button"
             type="button"
-            class="p-2 rounded-xl hover:bg-zinc-700"
+            class="nav-hamburger"
             aria-controls="nav-hamburger"
             aria-expanded="false"
+            @click="toggleMenu"
           >
             <svg
               class="w-5 h-5"
@@ -35,31 +58,28 @@
               />
             </svg>
           </button>
-          <div class="hidden w-full" id="nav-hamburger">
-              <ul class=" bg-gray-50 flex flex-col" style="color: white;">
-                <li class="block">
-                  <a class="block" href="/resume"> Resume </a>
-                </li>
-                <li class="block">
-                  <a href="/portfolio"> Portfoilio </a>
-                </li>
-                <li class="block">
-                  <a href="/blog"> Blog </a>
-                </li>
-                <li class="block">
-                  <a href="/contacts"> Contact </a>
-                </li>
-              </ul>
+
+          <div :class="{ hidden: !isMenuOpen }" id="nav-hamburger">
+            <ul
+              class="flex flex-col gap-10 "
+              style=" background-color: #31313a"
+            >
+              <li class="block pt-3">
+                <a class="block" href="/resume">Resume</a>
+              </li>
+              <li class="block">
+                <a href="/portfolio">Portfolio</a>
+              </li>
+              <li class="block">
+                <a href="/blog">Blog</a>
+              </li>
+              <li class="block">
+                <a href="/contacts">Contact</a>
+              </li>
+            </ul>
           </div>
-        </li>
-        <li class="hidden md:block">
-          <a href="/blog"> Blog </a>
-        </li>
-        <li class="hidden md:block">
-          <a href="/contacts"> Contact </a>
         </li>
       </ul>
     </div>
   </nav>
-  
 </template>

@@ -21,7 +21,7 @@
         </button>
       </div>
       <div :class="{ hidden: !inputCheck }">
-        <div class="text-center text-2xl bg-white" style="width: 400px">
+        <div class="text-center text-2xl bg-blue-500" style="width: 400px">
           {{ currenttime }}
         </div>
         <div
@@ -31,20 +31,27 @@
           <div
             v-for="(row, rowIndex) in sixteenPuzzle"
             :key="rowIndex"
-            class="grid grid-cols-4 border"
+            class="grid grid-cols-4"
           >
             <button
               :disabled="!isButtonDisable"
               @click="moveBlock(rowIndex, colIndex)"
               v-for="(col, colIndex) in row"
               :key="colIndex"
-              class="border border-red-500"
+              class="slideBox"
             >
               {{ col !== 0 ? col : "" }}
             </button>
           </div>
-          <button @click="startGame" v-if="!startPlay">start</button>
-          <button @click="resetGame">reset</button>
+          <button
+            class="bg-blue-900 text-white"
+            @click="startGame"
+            v-if="!startPlay"
+          >
+            Start
+          </button>
+          <button @click="resetGame">Surrender</button>
+          <!-- for testing score -->
         </div>
       </div>
     </div>
@@ -54,13 +61,30 @@
       :class="{ hidden: !inputCheck }"
     >
       <div class="text-center">
-        <h1>Leader Board</h1>
+        <div class="bg-blue-500 text-white p-2">
+          <h1>Leader Board</h1>
+        </div>
         <div class="text-black">
           <ul class="overflow-y-scroll h-96">
-            <li v-for="(item, index) in keepScore" :key="index">
+            <li
+              class="grid grid-cols-2"
+              v-for="(item, index) in keepScore"
+              :key="index"
+            >
+              <div class="text-right text-red-500 font-bold mx-2">
+                Rank : {{ index + 1 }}
+              </div>
+              <div class="text-left text-blue-500 font-bold mx-2">
+                Name : {{ item.name }}
+              </div>
+              <div class="col-span-2 text-center text-xl">
+                Time record: {{ calculateTime2(item.time) }}
+              </div>
+            </li>
+            <!-- <li v-for="(item, index) in keepScore" :key="index">
               <h1>No {{ index + 1 }}: Name {{ item.name }}</h1>
               <p>Times : {{ calculateTime2(item.time) }}</p>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -283,3 +307,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.slideBox {
+  background-color: #f0f0f0;
+  border: 1px solid blue;
+  margin: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+</style>

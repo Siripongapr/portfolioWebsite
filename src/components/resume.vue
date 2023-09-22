@@ -85,7 +85,10 @@ const knowledge = ref([
                 </a>
               </li>
             </ul>
-            <a href="/src/assets/siripongCV.pdf" download>
+            <a
+              href="https://drive.google.com/uc?id=1QEIS7huHNe_hJiTGrvDVt_rHpnxelpMF&export=download"
+              download
+            >
               <button
                 class="rounded-none px-10 py-2 mt-8"
                 style="background-color: #f26b38"

@@ -85,12 +85,14 @@ const knowledge = ref([
                 </a>
               </li>
             </ul>
-            <button
-              class="rounded-none px-10 py-2 mt-8"
-              style="background-color: #f26b38"
-            >
-              Download CV
-            </button>
+            <a href="/src/assets/siripongCV.pdf" download>
+              <button
+                class="rounded-none px-10 py-2 mt-8"
+                style="background-color: #f26b38"
+              >
+                Download CV
+              </button>
+            </a>
           </div>
         </div>
       </div>

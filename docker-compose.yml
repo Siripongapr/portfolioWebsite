@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    image: portfolio_vue3
+    container_name: vue3_portfolio
+    labels:
+      - traefik.http.routers.web.rule=Host(`portfolio.siripong-apiborrirat.blog`) # replace with your domain name
+      - traefik.http.routers.web.entrypoints=web
+      - traefik.http.routers.web.middlewares=redirect-to-https
+      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+      - traefik.http.routers.web-secure.entrypoints=websecure
+      - traefik.http.routers.web-secure.rule=Host(`portfolio.siripong-apiborrirat.blog`) # replace with your domain name
+      - traefik.http.routers.web-secure.tls.certresolver=myresolver
+      - traefik.http.services.web.loadbalancer.server.port=80
+    networks:
+      - traefik-net
+
+networks:
+  traefik-net:
+    external: true

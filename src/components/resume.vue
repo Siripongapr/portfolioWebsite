@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import checked from "./icons/checkedButton.vue"
+import checked from "./icons/checkedButton.vue";
 
 const aboutme = ref([
   { headers: "Name: ", title: "Siripong Apiborrirat" },
@@ -11,14 +11,13 @@ const aboutme = ref([
   { headers: "Email: ", title: "siripong.api43@gmail.com" },
 ]);
 const knowledge = ref([
-    { list: "HTML"},
-    { list: "CSS"},
-    { list: "JavaScript"},
-    { list: "C#"},
-    { list: "C++"},
-    { list: "Go"},
-
-])
+  { list: "HTML" },
+  { list: "CSS" },
+  { list: "JavaScript" },
+  { list: "C#" },
+  { list: "C++" },
+  { list: "Go" },
+]);
 </script>
 <template>
   <!-- main section -->
@@ -28,11 +27,9 @@ const knowledge = ref([
       style="height: 100vh; color: white"
     >
       <div>
-        <div class="text-center  font-bold text-5xl md:text-8xl">
-            <p class="glitch" data-text="RESUME">
-            RESUME
-            </p>
-          </div>
+        <div class="text-center font-bold text-5xl md:text-8xl">
+          <p class="glitch" data-text="RESUME">RESUME</p>
+        </div>
         <div class="flex flex-row justify-center mt-5">
           <div class="  ">
             <a href="/"> Home </a>
@@ -50,7 +47,10 @@ const knowledge = ref([
   <section aboutme>
     <div class="" style="color: white; margin: 50px">
       <h1 class="text-center md:text-start">About me</h1>
-      <div class="grid grid-cols-1 place-items-center md:place-items-start   md:grid-cols-12 md:gap-4 " style="margin-top: 30px">
+      <div
+        class="grid grid-cols-1 place-items-center md:place-items-start md:grid-cols-12 md:gap-4"
+        style="margin-top: 30px"
+      >
         <div class="col-span-2">
           <img
             style="width: 8rem"
@@ -60,7 +60,7 @@ const knowledge = ref([
           />
         </div>
         <div class="md:col-span-10 py-10 md:p-0">
-          <p class="overflow-y-scroll h-48 md:overflow-y-hidden  ">
+          <p class="overflow-y-scroll h-48 md:overflow-y-hidden">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
             optio ipsum, pariatur quia libero quas ratione excepturi omnis,
             autem nemo culpa reiciendis quidem unde repudiandae iure?
@@ -101,23 +101,34 @@ const knowledge = ref([
   <section education class="py-10">
     <div style="color: white; margin: 50px">
       <h1>Education</h1>
-      <div class="grid grid-cols-1  md:grid-cols-2">
+      <div class="grid grid-cols-1 md:grid-cols-2">
         <div class="grid grid-row">
-            <div>
-                <strong>2019 - present</strong> <br />Computer Engineering - Sripatum
-                University
-            </div>
-            <div class="">
-                <p style="color: gray;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde possimus fugiat dicta corporis quidem praesentium quas, porro fuga explicabo quae quisquam eius distinctio quaerat libero tempore magni necessitatibus repellendus saepe expedita rem labore. Similique reiciendis, ipsum suscipit sequi commodi ullam ab! Unde dolorem rerum, iure cum voluptates dolor quia sapiente!</p>
-            </div>
+          <div>
+            <strong>2019 - present</strong> <br />Computer Engineering -
+            Sripatum University
+          </div>
+          <div class="">
+            <p style="color: gray">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+              possimus fugiat dicta corporis quidem praesentium quas, porro fuga
+              explicabo quae quisquam eius distinctio quaerat libero tempore
+              magni necessitatibus repellendus saepe expedita rem labore.
+              Similique reiciendis, ipsum suscipit sequi commodi ullam ab! Unde
+              dolorem rerum, iure cum voluptates dolor quia sapiente!
+            </p>
+          </div>
         </div>
         <div class="py-10 md:px-10 md:py-0">
-            <strong>KNOWLEDGE</strong> <br>
-            <ul class="grid grid-rows-2 gap-2 mt-5" >
-                <li class="flex" v-for="(item, index) in knowledge" :key="index">
-                    <checked class="w-3 mr-3  font-extrabold justify-center" style="color:#F26B38;" />
-                    {{ item.list }}</li>
-            </ul>
+          <strong>KNOWLEDGE</strong> <br />
+          <ul class="grid grid-rows-2 gap-2 mt-5">
+            <li class="flex" v-for="(item, index) in knowledge" :key="index">
+              <checked
+                class="w-3 mr-3 font-extrabold justify-center"
+                style="color: #f26b38"
+              />
+              {{ item.list }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
